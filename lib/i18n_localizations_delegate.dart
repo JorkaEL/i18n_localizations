@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:i18n_localizations/i18n_localizations.dart';
 
-
 // LocalizationsDelegate is a factory for a set of localized resources
 // In this case, the localized strings will be gotten in an I18nLocalizations object
-class I18nLocalizationsDelegate extends LocalizationsDelegate<I18nLocalizations> {
+class I18nLocalizationsDelegate
+    extends LocalizationsDelegate<I18nLocalizations> {
   final List<Locale> supportedLocales;
   final String pathFile;
   static I18nLocalizations localizations;
