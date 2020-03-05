@@ -1,6 +1,6 @@
 name: i18n_localizations
 description: A simple flutter package for internationalization, angular TranslateService users will love this package.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/JorkaEL/i18n_localizations
 
 environment:
