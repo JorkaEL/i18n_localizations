@@ -28,7 +28,7 @@ class I18nLocalizations {
     return true;
   }
 
-  // This method will be called from every widget which needs a localized text
+  /// This method will be called from every widget which needs a localized text
   static String translate(BuildContext context, String key,
       { final Map<String, String> params }) {
     String translation = _decodeFromMap(Localizations
@@ -52,7 +52,7 @@ class I18nLocalizations {
     return subMap[lastKey];
   }
 
-  // create subMap if the key have multi part split by '.'
+  // Create subMap if the key have multi part split by '.'
   static Map<dynamic, dynamic> _createSubMap(Map<dynamic, dynamic> map,
       final String key) {
     final List<String> translationKeySplitted = key.split(".");

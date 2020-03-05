@@ -27,6 +27,7 @@ class I18nLocalizationsDelegate extends LocalizationsDelegate<I18nLocalizations>
   @override
   bool shouldReload(I18nLocalizationsDelegate old) => false;
 
+  /// This allows to define which language used when the device language is not supported
   localeResolutionCallback(Locale locale) {
     // Check if the current device locale is supported
     for (var supportedLocale in supportedLocales) {
