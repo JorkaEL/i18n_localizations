@@ -1,7 +1,6 @@
 name: i18n_localizations
 description: A simple flutter package for internationalization
 version: 1.0.0
-author: Xavier Boutanquoy <xboutanquoy@gmail.com>
 homepage: https://github.com/JorkaEL/i18n_localizations
 
 environment:
