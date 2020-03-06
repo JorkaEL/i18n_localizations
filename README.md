@@ -80,6 +80,10 @@ I18nLocalizations.translate(context,"key.child_two.grandchild")
 
 I18nLocalizations.translate(context,"keyParams", params:{"key": "value"})
 
+I18nLocalizations.translatePlural(context,"keyPlural", params:{"key":"6"})
+I18nLocalizations.translatePlural(context,"keyPlural", params:{"key":"1"})
+I18nLocalizations.translatePlural(context,"keyPlural", params:{"key":"not a number"})
+
 ```
 And the json file will look like:
 ```dart
@@ -91,7 +95,12 @@ And the json file will look like:
       "grandchild": "grandchild of key"
     }
   },
-  "keyParams": "keyParams have a params or a {key}"
+  "keyParams": "keyParams have a params or a {key}",
+  "keyPlural": {
+    "none": "there are none key here",
+    "one": "the value of our key is {key}",
+    "many": "we have {key} keys"
+  }
 }
 ```
 > **Note:** there should be no space between the key and the parameter hooks

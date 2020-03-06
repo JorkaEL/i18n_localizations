@@ -6,5 +6,10 @@
       "grandchild": "grandchild of key"
     }
   },
-  "keyParams": "keyParams have a params or a {key}"
+  "keyParams": "keyParams have a params or a {key}",
+  "keyPlural": {
+    "none": "there are none key here",
+    "one": "the value of our key is {key}",
+    "many": "we have {key} keys"
+  }
 }

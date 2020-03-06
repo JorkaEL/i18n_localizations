@@ -1,3 +1,24 @@
+## [1.1.0] - 6 Mars 2020
+Add Plural by function translatePlural
+
+```dart
+I18nLocalizations.translatePlural(context,"keyPlural", params:{"key":"6"})
+I18nLocalizations.translatePlural(context,"keyPlural", params:{"key":"1"})
+I18nLocalizations.translatePlural(context,"keyPlural", params:{"key":"not a number"})
+```
+And the json file will look like:
+```dart
+{
+  "keyPlural": {
+    "none": "there are none key here",
+    "one": "the value of our key is {key}",
+    "many": "we have {key} keys"
+  }
+}
+```
+> **Note:** there should be no space between the key and the parameter hooks
+
+
 ## [1.0.2] - 6 MARS 2020
 Add Example
 

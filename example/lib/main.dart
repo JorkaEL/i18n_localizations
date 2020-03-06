@@ -101,6 +101,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 context, "key.child_two.grandchild")),
             Text(I18nLocalizations.translate(context, "keyParams",
                 params: {"testkey": "value"})),
+            Text(I18nLocalizations.translatePlural(context, "keyPlural",
+                params: {"key": "not a number"})),
+            Text(I18nLocalizations.translatePlural(context, "keyPlural",
+                params: {"key": "1"})),
+            Text(I18nLocalizations.translatePlural(context, "keyPlural",
+                params: {"key": "6"})),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

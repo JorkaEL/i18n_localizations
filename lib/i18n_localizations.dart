@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+enum CasePlural { none, one, many }
+
 class I18nLocalizations {
   final Locale locale;
   final List<Locale> supportedLocales;
@@ -40,6 +42,53 @@ class I18nLocalizations {
     }
 
     return translation;
+  }
+
+  /// This method will be called from every widget which needs a localized text which may plural
+  static String translatePlural(BuildContext context, String key,
+      {final Map<String, String> params}) {
+    String pluralCase = _whichCase(params);
+
+    return translate(context, key + pluralCase, params: params);
+  }
+
+  static String _whichCase(final Map<String, String> params) {
+    String selectedKey;
+    CasePlural howMany = _howMany(params);
+    String manyKey = '.many';
+    String oneKey = '.one';
+    String noneKey = '.none';
+
+    switch (howMany) {
+      case CasePlural.none:
+        selectedKey = noneKey;
+        break;
+      case CasePlural.one:
+        selectedKey = oneKey;
+        break;
+      case CasePlural.many:
+        selectedKey = manyKey;
+    }
+
+    return selectedKey;
+  }
+
+  static CasePlural _howMany(final Map<String, String> params) {
+    CasePlural howMany = CasePlural.none;
+    if (params != null) {
+      for (final String paramKey in params.keys) {
+        double convertKey = double.tryParse(params[paramKey]);
+        if (convertKey != null) {
+          if (convertKey == 1) {
+            howMany = CasePlural.one;
+          } else if (convertKey > 1) {
+            howMany = CasePlural.many;
+          }
+        }
+      }
+    }
+
+    return howMany;
   }
 
   // Parse the json file load for create a map whit subMap
