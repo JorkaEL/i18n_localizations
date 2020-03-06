@@ -78,7 +78,7 @@ I18nLocalizations.translate(context,"keySimple")
 I18nLocalizations.translate(context,"key.child_one")
 I18nLocalizations.translate(context,"key.child_two.grandchild")
 
-I18nLocalizations.translate(context,"keyParams", params:{key: "value"})
+I18nLocalizations.translate(context,"keyParams", params:{"key": "value"})
 
 ```
 And the json file will look like:
@@ -86,9 +86,9 @@ And the json file will look like:
 {
   "keySimple": "key simple",
   "key": {
-    child_one: "child 1",
-    child_two: {
-      grandchild: "grandchild of key"
+    "child_one": "child 1",
+    "child_two": {
+      "grandchild": "grandchild of key"
     }
   },
   "keyParams": "keyParams have a params or a {key}"

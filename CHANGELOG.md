@@ -1,3 +1,6 @@
+## [1.0.2] - 6 MARS 2020
+Add Example
+
 ## [1.0.1] - 5 MARS 2020
 Format file lib
 
@@ -11,15 +14,16 @@ You only need to configure it properly to be able to translate your entire app.
 To use this library, you wiil need json file you can put there where you want, but don't forget to add them to your pubspec.yaml
 ```yaml
 assets:
-  - translateDir/en.json
-  - translateDir/fr.json
+  - {translateDir}/en.json
+  - {translateDir}/fr.json
+  - {translateDir}/{languageCode}.json
 ```
 
 You need to initialize a I18nLocalizationsDelegate white a list of supportedLocales and a pathFile where the json file are store.
 ```dart
 final I18nLocalizationsDelegate i18n = I18nLocalizationsDelegate(
       supportedLocales: [Locale('en', 'US'), Locale('fr', 'FR')],
-      pathFile: 'assets/i18n'
+      pathFile: '{translateDir}'
   );
 ```
 
@@ -77,7 +81,7 @@ I18nLocalizations.translate(context,"keySimple")
 I18nLocalizations.translate(context,"key.child_one")
 I18nLocalizations.translate(context,"key.child_two.grandchild")
 
-I18nLocalizations.translate(context,"keyParams", params:{key: "value"})
+I18nLocalizations.translate(context,"keyParams", params:{"key": "value"})
 
 ```
 And the json file will look like:
