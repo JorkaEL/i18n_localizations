@@ -1,3 +1,30 @@
+## [1.1.1] - 24 May 2020
+Add Options for CountryCode
+
+```yaml
+assets:
+  - {translateDir}/en.json
+  - {translateDir}/fr.json
+  - {translateDir}/{languageCode}.json
+  or
+  - {translateDir}/en_US.json
+  - {translateDir}/fr_FR.json
+  - {translateDir}/{languageCode}_${countryCode}.json
+```
+
+```dart
+final I18nLocalizationsDelegate i18n = I18nLocalizationsDelegate(
+      supportedLocales: [Locale('en'), Locale('fr')],
+      pathFile: '{translateDir}'
+  );
+  or
+  final I18nLocalizationsDelegate i18n = I18nLocalizationsDelegate(
+        supportedLocales: [Locale('en', 'US'), Locale('fr', 'FR')],
+        pathFile: '{translateDir}',
+        haveCountryCode: true
+    );
+```
+
 ## [1.1.0] - 6 Mars 2020
 Add Plural by function translatePlural
 

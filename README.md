@@ -8,19 +8,29 @@ You only need to configure it properly to be able to translate your entire app.
 Follow the next step for use i18n_localizations
 
 ## Configuration
-To use this library, you wiil need json file you can put there where you want, but don't forget to add them to your pubspec.yaml
+To use this library, you will need json file you can put there where you want, but don't forget to add them to your pubspec.yaml
 ```yaml
 assets:
   - {translateDir}/en.json
   - {translateDir}/fr.json
   - {translateDir}/{languageCode}.json
+    or
+  - {translateDir}/en_US.json
+  - {translateDir}/fr_FR.json
+  - {translateDir}/{languageCode}_${countryCode}.json
 ```
 
 You need to initialize a I18nLocalizationsDelegate white a list of supportedLocales and a pathFile where the json file are store.
 ```dart
 final I18nLocalizationsDelegate i18n = I18nLocalizationsDelegate(
-      supportedLocales: [Locale('en', 'US'), Locale('fr', 'FR')],
+      supportedLocales: [Locale('en'), Locale('fr')],
       pathFile: '{translateDir}'
+  );
+or
+final I18nLocalizationsDelegate i18n = I18nLocalizationsDelegate(
+      supportedLocales: [Locale('en', 'US'), Locale('fr', 'FR')],
+      pathFile: '{translateDir}',
+      haveCountryCode: true
   );
 ```
 

@@ -10,9 +10,11 @@ class I18nLocalizations {
   final Locale locale;
   final List<Locale> supportedLocales;
   final String pathFile;
+  final bool haveCountryCode;
   Map<dynamic, dynamic> localizedMap;
 
-  I18nLocalizations(this.locale, this.supportedLocales, this.pathFile);
+  I18nLocalizations(
+      this.locale, this.supportedLocales, this.pathFile, this.haveCountryCode);
 
   // Helper method to keep the code in the widgets concise
   // Localizations are accessed using an InheritedWidget "of" syntax
@@ -22,8 +24,7 @@ class I18nLocalizations {
 
   Future<bool> load() async {
     // Load the language JSON file from the "pathFile" folder
-    String jsonString =
-        await rootBundle.loadString('$pathFile/${locale.languageCode}.json');
+    String jsonString = await rootBundle.loadString(_pathFile());
     localizedMap = json.decode(jsonString);
 
     return true;
@@ -50,6 +51,13 @@ class I18nLocalizations {
     String pluralCase = _whichCase(params);
 
     return translate(context, key + pluralCase, params: params);
+  }
+
+  String _pathFile() {
+    String file = haveCountryCode
+        ? '${locale.languageCode}_${locale.countryCode}'
+        : locale.languageCode;
+    return '$pathFile/$file.json';
   }
 
   static String _whichCase(final Map<String, String> params) {
