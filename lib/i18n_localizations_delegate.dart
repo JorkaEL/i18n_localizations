@@ -31,7 +31,7 @@ class I18nLocalizationsDelegate
   bool shouldReload(I18nLocalizationsDelegate old) => false;
 
   /// This allows to define which language used when the device language is not supported
-  localeResolutionCallback(Locale locale) {
+  Locale localeResolutionCallback(Locale locale) {
     // Check if the current device locale is supported
     for (var supportedLocale in supportedLocales) {
       if (_isSupportedLocales(supportedLocale, locale)) {

@@ -115,4 +115,20 @@ And the json file will look like:
 ```
 > **Note:** there should be no space between the key and the parameter hooks
 
+### ⚠️ Note on **iOS**
+
+For translation to work on **iOS** you need to add supported locales to
+`ios/Runner/Info.plist` as described [here](https://flutter.dev/docs/development/accessibility-and-localization/internationalization#specifying-supportedlocales).
+
+Example:
+
+```xml
+<key>CFBundleLocalizations</key>
+<array>
+	<string>en</string>
+	<string>fr</string>
+</array>
+```
+
+
 

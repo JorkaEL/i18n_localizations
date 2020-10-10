@@ -7,8 +7,7 @@ void main() {
     List<Locale> supportedLocales = [Locale('en', 'US')];
     String pathFile = 'test';
     final i18n = I18nLocalizationsDelegate(
-        supportedLocales: supportedLocales,
-        pathFile: pathFile);
+        supportedLocales: supportedLocales, pathFile: pathFile);
 
     test('i18nLocalizationsDelegate shouln\'t be null', () {
       expect(null, isNot(equals(i18n)));
@@ -26,9 +25,11 @@ void main() {
       expect(i18n.pathFile, isNot(equals('no test')));
     });
 
-    test('supportedLocales shouldn\'t be [Locale("en", "US"), Locale("fr", "FR")]', () {
-      expect(i18n.supportedLocales, isNot(equals([Locale('en', 'US'), Locale('fr', 'FR')])));
+    test(
+        'supportedLocales shouldn\'t be [Locale("en", "US"), Locale("fr", "FR")]',
+        () {
+      expect(i18n.supportedLocales,
+          isNot(equals([Locale('en', 'US'), Locale('fr', 'FR')])));
     });
-
   });
 }

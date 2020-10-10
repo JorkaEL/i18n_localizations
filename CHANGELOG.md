@@ -1,3 +1,8 @@
+## [1.1.2] - 10 October 2020
+Add Note for ios in README.md
+
+Add return type Locale to methode localeResolutionCallback
+
 ## [1.1.1] - 24 May 2020
 Add Options for CountryCode
 
